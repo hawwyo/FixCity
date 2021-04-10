@@ -7,11 +7,13 @@
     tools:context=".MainActivity">
 
 
-    <com.google.android.material.navigation.NavigationView
-            android:id="@+id/navigation"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            app:menu="@menu/sidebarmenu"
-        tools:ignore="MissingConstraints" />
+    <ru.dropdatabase.fixcity.views.PetitionTileView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/teal_200"
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
