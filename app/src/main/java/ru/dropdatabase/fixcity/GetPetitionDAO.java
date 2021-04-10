@@ -1,5 +1,6 @@
 package ru.dropdatabase.fixcity;
 
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -7,6 +8,7 @@ import com.google.firebase.database.Query;
 import java.util.List;
 
 public class GetPetitionDAO implements getPetition {
+
     FirebaseDatabase database;
     int counter;
     public GetPetitionDAO() {
@@ -64,5 +66,6 @@ public class GetPetitionDAO implements getPetition {
                 .getReference()
                 .child("comments").child(Integer.toString(petitionId));
         return res;
+
     }
 }

@@ -5,7 +5,9 @@ import android.graphics.Bitmap;
 import java.util.List;
 
 public class Petition {
+
     Integer id;
+
     String author;
     Bitmap image;
     String title;
@@ -22,6 +24,7 @@ public class Petition {
 
     public Integer getId() {
         return id;
+
     }
 
     public Bitmap getImage() {
@@ -63,4 +66,5 @@ public class Petition {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
+
 }
