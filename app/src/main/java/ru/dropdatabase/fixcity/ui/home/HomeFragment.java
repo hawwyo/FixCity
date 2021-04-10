@@ -27,6 +27,7 @@ import ru.dropdatabase.fixcity.GetPetitionInfoSingleton;
 import ru.dropdatabase.fixcity.Petition;
 import ru.dropdatabase.fixcity.PetitionHolder;
 import ru.dropdatabase.fixcity.R;
+import ru.dropdatabase.fixcity.views.PetitionTileView;
 
 public class HomeFragment extends Fragment {
 
@@ -63,6 +64,13 @@ public class HomeFragment extends Fragment {
                 holder.petition.setCntOfComments( model.getCntOfComments() );
                 holder.petition.setCntOfLikes( model.getCntOfLikes() );
                 holder.petition.setPetitionId( model.getId() );
+
+                holder.petition.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        System.out.println("Clicked " + ((PetitionTileView) view).getTitle() );
+                    }
+                });
 
                 Log.d("mytag", "onBindViewHolder: ");
             }
