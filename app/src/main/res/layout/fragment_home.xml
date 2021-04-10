@@ -6,11 +6,12 @@
     android:layout_height="match_parent"
     tools:context="ru.dropdatabase.fixcity.ui.home.HomeFragment">
 
-    <ru.dropdatabase.fixcity.views.PetitionTileView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/first_screen_recycler"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

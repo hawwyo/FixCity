@@ -18,7 +18,7 @@ public class GetPetitionDAO implements getPetition {
         try {
             tmp = mutq.get().getResult().getValue(Integer.class);
         }catch (Exception e){
-
+            System.out.println(e.getMessage());
         }
         if(tmp == -1){
             counter = 0;
