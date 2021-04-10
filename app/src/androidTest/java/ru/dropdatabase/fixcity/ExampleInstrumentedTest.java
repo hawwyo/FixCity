@@ -1,4 +1,4 @@
-package com.example.sidebartest;
+package ru.dropdatabase.fixcity;
 
 import android.content.Context;
 
