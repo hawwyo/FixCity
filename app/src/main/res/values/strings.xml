@@ -2,12 +2,12 @@
     <string name="app_name">FixCity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Profile name</string>
+    <string name="nav_header_title">Profile name here</string>
     <string name="nav_header_subtitle">Email here</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">MENU1</string>
-    <string name="menu_gallery">MENU2</string>
-    <string name="menu_slideshow">MENU3</string>
+    <string name="menu_home">Лента событий</string>
+    <string name="menu_gallery">Мои события</string>
+    <string name="menu_slideshow">Запланированные события</string>
 </resources>
