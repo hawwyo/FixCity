@@ -1,7 +1,9 @@
 package ru.dropdatabase.fixcity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -56,5 +58,16 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void onTileClickUser(View v){
+        Intent intent;
+        if (null == null){
+            intent = new Intent(MainActivity.this, OpenPetitionActivityUser.class);
+        } else {
+            intent = new Intent(MainActivity.this, OpenPetitionActivityOwner.class);
+        }
+
+        startActivity(intent);
     }
 }
