@@ -1,79 +1,62 @@
 package ru.dropdatabase.fixcity;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import ru.dropdatabase.fixcity.model.User;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ValueEventListener {
-    User user = new User("Sochi");
-    DatabaseReference dbRef;
-    FirebaseDatabase database;
+public class MainActivity extends AppCompatActivity  {
+
+    GetPetitionDAO DAO = new GetPetitionDAO();
+    List<Petition> petitions;
+    TextView text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseDatabase db = FirebaseDatabase.getInstance();
-        DatabaseReference dbRef = db.getReference("message").child("item");
-        dbRef.setValue("This is a test message").addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()){
-                    Log.d("mytag", "done");
-                }else{
-                    Log.d("mytag", "Error");
-                }
-            }
-        });
-        dbRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d("mytag", "Value is: " + value);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                Log.w("mytag", "Failed to read value.", error.toException());
-            }
-        });
+        Petition toSave = new Petition();
+        toSave.setTitle("comment");
+        List<Comment> ls = new ArrayList<Comment>();
+        ls.add(new Comment("da","soglasen"));
+        ls.add(new Comment("da2","net"));
+        toSave.setComments(ls);
+
+        DAO.save(toSave);
+//        DAO.getComments(0)
+//                .addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot ds : snapshot.getChildren()) {
+//                    Comment wi = ds.getValue(Comment.class);
+//
+//                    Log.d("mytag", wi.getText());
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+        Petition toSave2 = new Petition();
+        toSave2.setTitle("second");
+        List<Comment> ls2 = new ArrayList<Comment>();
+        ls2.add(new Comment("net","second"));
+        ls2.add(new Comment("net","netda"));
+        toSave2.setComments(ls2);
+
+        DAO.save(toSave2);
     }
 
-    public void changePlace(User p) {
-        dbRef.child("myplace").setValue(p);
-    }
 
-
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-        User user = snapshot.getValue(User.class);
-
-        Log.d("mytag", "place: " + user);
-        /*
-       for (DataSnapshot s: snapshot.getChildren() ) {
-           Log.d("mytag", "key: " + s.getKey());
-           Place place = s.getValue(Place.class);
-           Log.d("mytag", "place: " + place);
-       }
-         */
-
-    }
-
-    @Override
-    public void onCancelled(@NonNull DatabaseError error) {
-
-    }
 }
