@@ -7,23 +7,23 @@ import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
 
 public class Comment {
-    private String author;
+    private Author author;
     private String text;
     private LocalDate date;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public Comment(String author, String text) {
+    public Comment(Author author, String text) {
         this.author = author;
         this.text = text;
 
         date = LocalDate.now();
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Author author) {
         this.author = author;
     }
 
