@@ -1,4 +1,4 @@
-package ru.dropdatabase.fixcity;
+package com.example.sidebartest;
 
 import org.junit.Test;
 
