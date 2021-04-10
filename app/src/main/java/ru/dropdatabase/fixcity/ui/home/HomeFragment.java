@@ -56,9 +56,12 @@ public class HomeFragment extends Fragment {
         FirebaseRecyclerAdapter<Petition, PetitionHolder> adapter = new FirebaseRecyclerAdapter<Petition, PetitionHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull PetitionHolder holder, int position, @NonNull Petition model) {
-                holder.petition.setBackgroundImage( model.getImage() );
-                if (holder.petition.getBackgroundImage() == null) {
+
+                if (model.imageIsNull()) {
                     holder.petition.setBackgroundImage(BitmapFactory.decodeResource( root.getResources(), R.drawable.rubbish ));
+                }
+                else {
+                    holder.petition.setBackgroundImage( model.getImage() );
                 }
                 holder.petition.setTitle( model.getTitle() );
                 holder.petition.setCntOfComments( model.getCntOfComments() );

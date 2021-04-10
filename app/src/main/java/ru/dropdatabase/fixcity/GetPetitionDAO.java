@@ -17,6 +17,7 @@ public class GetPetitionDAO implements getPetition {
         int tmp = -1;
         try {
             tmp = mutq.get().getResult().getValue(Integer.class);
+            Thread.sleep(100);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
