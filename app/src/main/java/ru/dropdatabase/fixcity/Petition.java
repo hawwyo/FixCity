@@ -2,6 +2,7 @@ package ru.dropdatabase.fixcity;
 
 import android.graphics.Bitmap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Petition {
@@ -12,6 +13,14 @@ public class Petition {
     int cntOfComments;
     List<Comment> comments;
 
+    public Petition(String author, Bitmap image, String title) {
+        this.author = author;
+        this.image = image;
+        this.title = title;
+        this.cntOfLikes = 0;
+        this.cntOfComments = 0;
+        this.comments = new ArrayList<>();
+    }
 
     public String getAuthor() {
         return author;
