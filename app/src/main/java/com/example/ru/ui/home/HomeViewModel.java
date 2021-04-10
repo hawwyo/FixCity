@@ -1,4 +1,4 @@
-package com.example.sidebartest.ui.home;
+package com.example.ru.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

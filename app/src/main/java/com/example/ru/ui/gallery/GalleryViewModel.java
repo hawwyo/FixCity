@@ -1,4 +1,4 @@
-package com.example.sidebartest.ui.gallery;
+package ru.dropdatabase.ui.gallery;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

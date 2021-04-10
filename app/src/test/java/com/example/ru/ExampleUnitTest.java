@@ -1,4 +1,4 @@
-package com.example.sidebartest;
+package com.example.ru;
 
 import org.junit.Test;
 
