@@ -1,8 +1,9 @@
-package com.example.ru;
+package ru.dropdatabase.fixcity;
 
 import android.os.Bundle;
 import android.view.Menu;
 
+import ru.dropdatabase.fixcity.R;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;

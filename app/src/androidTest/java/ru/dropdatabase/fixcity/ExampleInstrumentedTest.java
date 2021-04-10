@@ -1,4 +1,4 @@
-package com.example.ru;
+package ru.dropdatabase.fixcity;
 
 import android.content.Context;
 
