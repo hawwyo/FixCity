@@ -4,34 +4,19 @@ import android.graphics.Bitmap;
 
 import java.util.List;
 
-public class GetPetitionDAO implements getPetitionInfo {
+public class GetPetitionDAO implements getPetition {
     @Override
-    public String getPetitionTitle(int petitionId) {
+    public Petition getPetitionWithoutComments(int petitionId) {
         return null;
     }
 
     @Override
-    public Bitmap getPetitionBitmap(int petitionId) {
+    public Petition getPetition(int petitionId) {
         return null;
     }
 
     @Override
-    public String getPetitionDescription(int petitionId) {
+    public List<Comment> getComments(int petitionId) {
         return null;
-    }
-
-    @Override
-    public List<Comment> getPetitionComments(int petitionId) {
-        return null;
-    }
-
-    @Override
-    public int getPetitionCommentsCnt(int petitionId) {
-        return 0;
-    }
-
-    @Override
-    public int getPetitionLikesCnt(int petitionId) {
-        return 0;
     }
 }

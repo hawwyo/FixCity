@@ -1,9 +1,9 @@
 package ru.dropdatabase.fixcity;
 
 public class GetPetitionInfoSingleton {
-    private static getPetitionInfo petitionInfo;
+    private static getPetition petitionInfo;
 
-    public static getPetitionInfo getInstanceOf() {
+    public static getPetition getInstanceOf() {
         if (petitionInfo == null) {
             petitionInfo = new GetPetitionDAO();
         }
