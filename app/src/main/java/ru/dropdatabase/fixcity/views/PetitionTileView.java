@@ -91,4 +91,44 @@ public class PetitionTileView extends View {
 
 
     }
+
+    public int getPetitionId() {
+        return petitionId;
+    }
+
+    public void setPetitionId(int petitionId) {
+        this.petitionId = petitionId;
+    }
+
+    public int getCntOfLikes() {
+        return cntOfLikes;
+    }
+
+    public void setCntOfLikes(int cntOfLikes) {
+        this.cntOfLikes = cntOfLikes;
+    }
+
+    public int getCntOfComments() {
+        return cntOfComments;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setCntOfComments(int cntOfComments) {
+        this.cntOfComments = cntOfComments;
+    }
+
+    public Bitmap getBackgroundImage() {
+        return backgroundImage;
+    }
+
+    public void setBackgroundImage(Bitmap backgroundImage) {
+        this.backgroundImage = backgroundImage;
+    }
 }

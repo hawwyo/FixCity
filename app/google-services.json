@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "258422783208",
+    "firebase_url": "https://test-a5dac-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "test-a5dac",
+    "storage_bucket": "test-a5dac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258422783208:android:35a17c3baef1a5e8989d5d",
+        "android_client_info": {
+          "package_name": "ru.dropdatabase.fixcity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258422783208-r3saipa1oerl84s4ti2kvoh71n2se1g1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ru.dropdatabase.fixcity",
+            "certificate_hash": "5eb3bce40a361e8517ccd940f8a6b92e9f0d67af"
+          }
+        },
+        {
+          "client_id": "258422783208-f1d59aav860d7i8ju1al60q1kcaab6p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIBwwaMGTShj2rVIKOnws2SX3PHyYbkq8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258422783208-f1d59aav860d7i8ju1al60q1kcaab6p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
