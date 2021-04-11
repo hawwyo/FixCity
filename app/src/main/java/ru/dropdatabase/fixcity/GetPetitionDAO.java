@@ -5,6 +5,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class GetPetitionDAO implements getPetition {
     FirebaseDatabase database;
@@ -33,13 +34,12 @@ public class GetPetitionDAO implements getPetition {
     }
     @Override
     public void save(Petition petition) {
-        petition.setId(incrementCounter());
-        DatabaseReference myRef = database.getReference("petitions").child(Integer.toString(petition.getId()));
-        myRef.setValue(petition);
-        saveComments(petition.getId(), petition.getComments());
+
+        Log.d("mytag", "save");
+        update(incrementCounter(), petition);
     }
-    protected void saveComments(int id, List<Comment> c){
-        DatabaseReference myRef = database.getReference("comments").child(Integer.toString(id));
+    protected void saveComments(String title, List<Comment> c){
+        DatabaseReference myRef = database.getReference("comments").child(title);
         myRef.setValue(c);
     }
     @Override
@@ -51,18 +51,18 @@ public class GetPetitionDAO implements getPetition {
     }
 
     @Override
-    public Query getPetition(int petitionId) {
+    public Query getPetition(String title) {
         Query res = database
                 .getReference()
-                .child("petitions").child(Integer.toString(petitionId));
+                .child("petitions").child(title);
         return res;
     }
 
     @Override
-    public Query getComments(int petitionId) {
+    public Query getComments(String title) {
         Query res = database
                 .getReference()
-                .child("comments").child(Integer.toString(petitionId));
+                .child("comments").child(title);
         return res;
     }
 }

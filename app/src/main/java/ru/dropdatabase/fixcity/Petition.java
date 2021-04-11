@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import java.util.List;
 
 public class Petition {
-    Integer id;
+//    Integer id;
     String author;
     Bitmap image;
     String title;
@@ -16,13 +16,13 @@ public class Petition {
     public Petition() {
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
+//    public void setId(Integer id) {
+//        this.id = id;
+//    }
+//
+//    public Integer getId() {
+//        return id;
+//    }
 
     public Bitmap getImage() {
         return image;

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
 
         Petition toSave = new Petition();
-        toSave.setTitle("comment");
+        toSave.setTitle("update test");
         List<Comment> ls = new ArrayList<Comment>();
         ls.add(new Comment("da","soglasen"));
         ls.add(new Comment("da2","net"));
