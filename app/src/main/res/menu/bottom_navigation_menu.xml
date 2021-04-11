@@ -3,13 +3,14 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:title="Календарь" />
-        <item
+            android:title="Популярные" />
+        
+      <item
             android:id="@+id/nav_gallery"
-            android:title="Карта?" />
+            android:title="Календарь" />
 
-        <item
+      <item
             android:id="@+id/nav_slideshow"
-            android:title="Че нибуль еще" />
+            android:title="Карта" />
     </group>
 </menu>
