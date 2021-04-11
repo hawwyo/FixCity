@@ -2,11 +2,14 @@ package ru.dropdatabase.fixcity;
 
 import android.graphics.Bitmap;
 
+import com.google.firebase.database.Query;
+
 import java.util.List;
 
 public interface getPetition {
-    public Petition getPetitionWithoutComments(int petitionId);
-    public Petition getPetition(int petitionId);
-    public List<Comment> getComments(int petitionId);
+    public void save(Petition petition);
+    public Query getPetitionsWithoutComments();
+    public Query getPetition(int petitionId);
+    public Query getComments(int petitionId);
 
 }
