@@ -10,7 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SidebarTEst">
+
+        <activity android:name=".OpenPetitionActivityOwner"></activity>
+        <activity android:name=".OpenPetitionActivityUser" />
+
         <activity android:name=".AddEventActivity"></activity>
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
