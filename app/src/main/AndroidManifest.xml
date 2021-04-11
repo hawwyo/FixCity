@@ -10,8 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SidebarTEst">
+        <activity android:name=".AddEventActivity"></activity>
         <activity
-            android:name="ru.dropdatabase.fixcity.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.SidebarTEst.NoActionBar">
             <intent-filter>

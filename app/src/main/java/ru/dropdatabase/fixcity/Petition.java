@@ -4,7 +4,11 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 
+
 import java.io.ByteArrayOutputStream;
+
+import java.util.LinkedList;
+
 import java.util.List;
 
 public class Petition {
@@ -16,7 +20,17 @@ public class Petition {
     int cntOfComments;
     List<Comment> comments;
 
+
     public Petition() {
+
+    public Petition(String author, String image, String title) {
+        this.author = author;
+        this.image = image;
+        this.title = title;
+        this.cntOfLikes = 0;
+        this.cntOfComments = 0;
+        this.comments = new LinkedList<>();
+
     }
 
     public void setId(Integer id) {
