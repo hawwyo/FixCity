@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi;
 import java.time.LocalDate;
 
 public class Comment {
+
     private String author;
     private String text;
     private String date;
@@ -35,6 +36,7 @@ public class Comment {
     }
 
     public void setAuthor(String author) {
+
         this.author = author;
     }
 
@@ -51,6 +53,7 @@ public class Comment {
     }
 
     public void setDate(String date) {
+
         this.date = date;
     }
 }
