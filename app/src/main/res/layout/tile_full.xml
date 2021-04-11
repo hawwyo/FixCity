@@ -21,6 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="title"
+        android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petition_image" />
@@ -31,6 +33,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:hint="description"
+        android:gravity="center"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/petition_title" />

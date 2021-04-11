@@ -18,10 +18,18 @@ public class Petition {
     String title;
     int cntOfLikes;
     int cntOfComments;
+    String description;
     List<Comment> comments;
 
 
-    public Petition() {
+    public Petition() {}
+
+    public Petition(String author, String image, String title, String description) {
+        this.author = author;
+        this.image = image;
+        this.title = title;
+        this.description = description;
+    }
 
     public Petition(String author, String image, String title) {
         this.author = author;
@@ -41,15 +49,16 @@ public class Petition {
         return id;
     }
 
-    public Bitmap getImage() {
-        return convert(image);
+    public String getImage() {
+        return image;
+//        return convert(image);
     }
     public boolean imageIsNull() {
         return image == null;
     }
 
-    public void setImage(Bitmap image) {
-        this.image = convert(image);
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getTitle() {
@@ -97,7 +106,7 @@ public class Petition {
     public static String convert(Bitmap bitmap)
     {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 50, outputStream);
 
         return Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT);
     }

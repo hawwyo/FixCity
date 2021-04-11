@@ -64,5 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
+    public void onAddEventClick(View v) {
+        Intent intent = new Intent( MainActivity.this, AddEventActivity.class );
+        startActivity(intent);
+
+    }
+
 }
 

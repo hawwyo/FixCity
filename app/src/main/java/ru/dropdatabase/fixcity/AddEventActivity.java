@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -36,16 +37,12 @@ public class AddEventActivity extends AppCompatActivity {
         String title = petitionTitle.getText().toString();
         String description = petitionDescription.getText().toString();
         //Нужно что-то придумать...
-        Bitmap picture = null;
+        String picture = Petition.convert(BitmapFactory.decodeResource(getResources(), R.drawable.rubbish));
 
-        //Нужно больше полей!
         if(validateForm(name, title, description)) {
-            //Petition newPetition = new Petition(name, picture, title, description);
+            Petition newPetition = new Petition(name, picture, title, description);
+            GetPetitionInfoSingleton.getInstanceOf().save(newPetition);
         }
-
-        Intent intent = new Intent(AddEventActivity.this, MainActivity.class);
-        //intent.putExtra("PETITION", (Parcelable) newPetition);
-        // или добавить сразу в базу это чудо
-        startActivity(intent);
+        finish();
     }
 }

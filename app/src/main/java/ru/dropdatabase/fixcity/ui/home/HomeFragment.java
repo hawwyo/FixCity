@@ -1,8 +1,11 @@
 package ru.dropdatabase.fixcity.ui.home;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.text.Layout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +26,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
+
 import ru.dropdatabase.fixcity.GetPetitionInfoSingleton;
+import ru.dropdatabase.fixcity.OpenPetitionActivityUser;
 import ru.dropdatabase.fixcity.Petition;
 import ru.dropdatabase.fixcity.PetitionHolder;
 import ru.dropdatabase.fixcity.R;
 import ru.dropdatabase.fixcity.views.PetitionTileView;
+
 
 public class HomeFragment extends Fragment {
 
@@ -58,7 +65,7 @@ public class HomeFragment extends Fragment {
             protected void onBindViewHolder(@NonNull PetitionHolder holder, int position, @NonNull Petition model) {
 
                 if (model.imageIsNull()) {
-                    holder.petition.setBackgroundImage(BitmapFactory.decodeResource( root.getResources(), R.drawable.rubbish ));
+                    holder.petition.setBackgroundImage( Petition.convert( BitmapFactory.decodeResource( root.getResources(), R.drawable.rubbish ) ) );
                 }
                 else {
                     holder.petition.setBackgroundImage( model.getImage() );
@@ -66,12 +73,30 @@ public class HomeFragment extends Fragment {
                 holder.petition.setTitle( model.getTitle() );
                 holder.petition.setCntOfComments( model.getCntOfComments() );
                 holder.petition.setCntOfLikes( model.getCntOfLikes() );
-                holder.petition.setPetitionId( model.getId() );
+//                holder.petition.setPetitionId( model.getId() );
 
                 holder.petition.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        System.out.println("Clicked " + ((PetitionTileView) view).getTitle() );
+
+                        Intent intent = new Intent( root.getContext(), OpenPetitionActivityUser.class);
+//
+                        PetitionTileView tileView = (PetitionTileView) view;
+
+                        String title = tileView.getTitle();
+                        String image = tileView.getBackgroundImage();
+                        String likes = String.valueOf(tileView.getCntOfLikes());
+                        String commentsCount = String.valueOf(tileView.getCntOfComments());
+
+//
+                        intent.putExtra("title", title);
+//                        System.out.println(image.length());
+//                        intent.putExtra("image", image);
+                        intent.putExtra("likes", likes);
+                        intent.putExtra("commentsCount", commentsCount);
+//
+                        startActivity(intent);
+
                     }
                 });
 
@@ -90,7 +115,11 @@ public class HomeFragment extends Fragment {
 
         RecyclerView recyclerView = root.findViewById(R.id.first_screen_recycler);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager( new LinearLayoutManager(root.getContext()));
+        LinearLayoutManager manager = new LinearLayoutManager( root.getContext() );
+        manager.setItemPrefetchEnabled(true);
+        manager.setMeasurementCacheEnabled(true);
+        manager.setInitialPrefetchItemCount(10);
+        recyclerView.setLayoutManager( manager );
 
         adapter.startListening();
 

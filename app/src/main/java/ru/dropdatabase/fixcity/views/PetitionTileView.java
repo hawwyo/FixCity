@@ -8,28 +8,32 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Base64;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
+import java.io.Serializable;
+
 import ru.dropdatabase.fixcity.R;
 
-public class PetitionTileView extends View {
+public class PetitionTileView extends View implements Serializable {
 
     int petitionId = 0;
     int cntOfLikes = 228;
     int cntOfComments = 1488;
     int width, height;
     String title = "Lots of rubbish";
-    Bitmap backgroundImage;
+    String backgroundImage;
 
-    RectF image_destination_rect;
+    transient RectF image_destination_rect;
 
     final float img_c = 0.8f;
     final float description_c = 0.1f;
     final float cnt_c = 0.1f;
 
-    Paint paint = new Paint();
+    transient Paint paint = new Paint();
 
     public PetitionTileView(Context context) {
         super(context);
@@ -38,7 +42,7 @@ public class PetitionTileView extends View {
     public PetitionTileView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
-        backgroundImage = BitmapFactory.decodeResource( getResources(), R.drawable.rubbish);
+        backgroundImage = convert( BitmapFactory.decodeResource( getResources(), R.drawable.rubbish) );
     }
 
     public PetitionTileView(Context context, @Nullable AttributeSet attrs, int petitionId) {
@@ -70,7 +74,7 @@ public class PetitionTileView extends View {
 //        ((paint.descent() + textPaint.ascent()) / 2) is the distance from the baseline to the center.
 //        canvas.drawText(title, xPos, yPos, textPaint);
 
-        canvas.drawBitmap( backgroundImage, null, image_destination_rect, paint);
+        canvas.drawBitmap( convert(backgroundImage), null, image_destination_rect, paint);
 
         float x_title = width / 2;
         float y_title = height * img_c + height * description_c / 2 - ((paint.descent() + paint.ascent()) / 2);
@@ -124,11 +128,30 @@ public class PetitionTileView extends View {
         this.cntOfComments = cntOfComments;
     }
 
-    public Bitmap getBackgroundImage() {
+    public String getBackgroundImage() {
         return backgroundImage;
     }
 
-    public void setBackgroundImage(Bitmap backgroundImage) {
+    public void setBackgroundImage(String backgroundImage) {
         this.backgroundImage = backgroundImage;
+    }
+
+
+    public static Bitmap convert(String base64Str) throws IllegalArgumentException
+    {
+        byte[] decodedBytes = Base64.decode(
+                base64Str.substring(base64Str.indexOf(",")  + 1),
+                Base64.DEFAULT
+        );
+
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+    }
+
+    public static String convert(Bitmap bitmap)
+    {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 50, outputStream);
+
+        return Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT);
     }
 }
